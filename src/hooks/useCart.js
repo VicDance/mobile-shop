@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useCallback } from 'react'
 
 const CartContext = createContext()
 
-const useCart = () => {
+const useCart = ({children}) => {
     const [cartItems, setCartItems] = useState([])
     const [cartCount, setCartCount] = useState(0);
 
@@ -44,7 +44,7 @@ const useCart = () => {
     const clearCart = useCallback(() => {
         setCartItems([])
     }, []);
-
+    
     const total = useMemo(() => {
         return cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
     }, [cartItems]);
@@ -65,7 +65,7 @@ const useCart = () => {
     }), [cartItems, cartCount, total, addToCart, removeFromCart, updateQuantity, clearCart]);
 
     return (
-        <CartContext.Provider value={{ cartCount, setCartCount }}>
+        <CartContext.Provider value={{ contextValue }}>
             {children}
         </CartContext.Provider>
     );

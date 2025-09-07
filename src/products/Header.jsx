@@ -1,6 +1,6 @@
 const Header = () => {
     return (
-        <h1>Mobile Shop</h1>
+        <h1 class="p-2 text-center">Mobile Shop</h1>
     );
 }
 
