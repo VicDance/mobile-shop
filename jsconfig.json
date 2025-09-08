@@ -4,7 +4,10 @@
     "module": "esnext",
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "include": ["src"]
 }
